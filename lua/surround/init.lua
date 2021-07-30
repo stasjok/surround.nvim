@@ -943,45 +943,6 @@ local function set_keymaps()
     end
   end
 
-  -- Insert Mode Ctrl-S mappings
-  for _, pair in ipairs(
-    table.merge(vim.g.surround_pairs.nestable, vim.g.surround_pairs.linear)
-  ) do
-    table.insert(
-      keys,
-      {
-        "i",
-        "<c-s>" .. pair[OPENING],
-        pair[OPENING] .. pair[CLOSING] .. "<left>",
-        {
-          noremap = true
-        }
-      }
-    )
-    table.insert(
-      keys,
-      {
-        "i",
-        "<c-s>" .. pair[OPENING] .. " ",
-        pair[OPENING] .. "  " .. pair[CLOSING] .. "<left><left>",
-        {
-          noremap = true
-        }
-      }
-    )
-    table.insert(
-      keys,
-      {
-        "i",
-        "<c-s>" .. pair[OPENING] .. "<c-s>",
-        pair[OPENING] .. "<cr>" .. pair[CLOSING] .. "<esc>O",
-        {
-          noremap = true
-        }
-      }
-    )
-  end
-
   -- Load Keymaps
   utils.load_keymaps(keys)
 end
