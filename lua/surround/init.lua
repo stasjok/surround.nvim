@@ -155,9 +155,6 @@ local function surround_add_operator_mode()
   -- Reset Cursor Position
   -- vim.api.nvim_win_set_cursor(0, cursor_position)
 
-  -- Feedback
-  print("Added surrounding ", char)
-
   -- Set Last CMD
   vim.g.surround_last_cmd = {
     "surround_add",
@@ -297,9 +294,6 @@ local function surround_add(char)
   -- Reset Cursor Position
   -- vim.api.nvim_win_set_cursor(0, cursor_position)
 
-  -- Feedback
-  print("Added surrounding ", char)
-
   -- Set Last CMD
   vim.g.surround_last_cmd = {
     "surround_add",
@@ -386,9 +380,6 @@ local function surround_delete(char)
 
   -- Reset Cursor Position
   -- vim.api.nvim_win_set_cursor(0, cursor_position)
-
-  -- Feedback
-  print("Deleted surrounding ", char)
 
   -- Set Last CMD
   vim.g.surround_last_cmd = {
@@ -585,9 +576,6 @@ local function surround_replace(
 
   -- Reset cursor position
   -- vim.api.nvim_win_set_cursor(0, cursor_position)
-
-  -- Feedback
-  print("Replaced ", char_1, " with ", char_2)
 
   -- Set last_cmd if not a toggle triggered the function
   if not is_toggle then
