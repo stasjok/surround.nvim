@@ -923,18 +923,20 @@ local function set_keymaps()
 
       -- Surround Replace
       for key_2, val_2 in pairs(map_keys) do
-        table.insert(
-          keys,
-          {
-            "n", -- Normal Mode
-            "cs" .. key_1 .. key_2, -- LHS
-            "<cmd>lua require'surround'.surround_replace(" ..
-              utils.quote(val_1) .. "," .. utils.quote(val_2) .. ")<cr>", -- RHS
+        if key_1 ~= key_2 then
+          table.insert(
+            keys,
             {
-              noremap = true
-            } -- Options
-          }
-        )
+              "n", -- Normal Mode
+              "cs" .. key_1 .. key_2, -- LHS
+              "<cmd>lua require'surround'.surround_replace(" ..
+                utils.quote(val_1) .. "," .. utils.quote(val_2) .. ")<cr>", -- RHS
+              {
+                noremap = true
+              } -- Options
+            }
+          )
+        end
       end
     end
   end
