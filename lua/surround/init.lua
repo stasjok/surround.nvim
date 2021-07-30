@@ -753,11 +753,7 @@ local function repeat_last()
 end
 
 local function set_keymaps()
-  local map_keys = {
-    b = "(",
-    B = "{",
-    f = "f"
-  }
+  local map_keys = {}
   local all_pairs =
     table.merge(vim.g.surround_pairs.nestable, vim.g.surround_pairs.linear)
   for _, pair in ipairs(all_pairs) do
